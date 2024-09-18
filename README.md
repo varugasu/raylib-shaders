@@ -10,6 +10,19 @@ finalColor = vec4(1.0,0.0,0.0, 1.0);
 
 We are setting all pixels to RED
 
+When applying the shader, we use `BeginShaderMode` and `EndShaderMode`. Everything between it will have the shader applied
+
+```cpp
+BeginShaderMode(shader);
+{
+    DrawRectangle(0, 0, screenWidth / 2, screenHeight, WHITE);
+}
+EndShaderMode();
+DrawRectangle(screenWidth / 2, 0, screenWidth / 2, screenHeight, BLUE);
+```
+
+The code above splits the screen in two. The left part will use the shader and the right part will have a plain blue color
+
 ## Uniform u_time
 
 It is also possible to change values over time using `uniform float time;`

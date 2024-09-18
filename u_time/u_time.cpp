@@ -19,10 +19,9 @@ int main(void) {
       ClearBackground(RAYWHITE);
 
       BeginShaderMode(shader);
-
-      DrawRectangle(0, 0, screenWidth, screenHeight, WHITE);
-
+      { DrawRectangle(0, 0, screenWidth / 2, screenHeight, WHITE); }
       EndShaderMode();
+      DrawRectangle(screenWidth / 2, 0, screenWidth / 2, screenHeight, BLUE);
     }
     EndDrawing();
   }
