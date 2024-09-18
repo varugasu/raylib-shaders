@@ -6,6 +6,8 @@ int main(void) {
 
   InitWindow(screenWidth, screenHeight, "Shaders");
 
+  Shader shader = LoadShader(0, "../shader.fs");
+
   SetTargetFPS(60);
 
   while (!WindowShouldClose()) {
@@ -13,8 +15,16 @@ int main(void) {
 
     ClearBackground(RAYWHITE);
 
+    BeginShaderMode(shader);
+
+    DrawRectangle(0, 0, screenWidth, screenHeight, WHITE);
+
+    EndShaderMode();
+
     EndDrawing();
   }
+
+  UnloadShader(shader);
 
   CloseWindow();
 
