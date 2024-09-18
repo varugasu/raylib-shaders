@@ -11,6 +11,9 @@ int main(void) {
   SetTargetFPS(60);
 
   while (!WindowShouldClose()) {
+    float time = GetTime();
+    SetShaderValue(shader, GetShaderLocation(shader, "time"), &time,
+                   SHADER_UNIFORM_FLOAT);
     BeginDrawing();
 
     ClearBackground(RAYWHITE);
