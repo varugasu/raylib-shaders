@@ -12,18 +12,18 @@ int main(void) {
 
   while (!WindowShouldClose()) {
     float time = GetTime();
-    SetShaderValue(shader, GetShaderLocation(shader, "time"), &time,
+    SetShaderValue(shader, GetShaderLocation(shader, "u_time"), &time,
                    SHADER_UNIFORM_FLOAT);
     BeginDrawing();
+    {
+      ClearBackground(RAYWHITE);
 
-    ClearBackground(RAYWHITE);
+      BeginShaderMode(shader);
 
-    BeginShaderMode(shader);
+      DrawRectangle(0, 0, screenWidth, screenHeight, WHITE);
 
-    DrawRectangle(0, 0, screenWidth, screenHeight, WHITE);
-
-    EndShaderMode();
-
+      EndShaderMode();
+    }
     EndDrawing();
   }
 
